@@ -58,12 +58,12 @@ class Books(models.Model):
 		return self.title
 
 	@property
-    def imageURL(self):
-        try:
-            url = self.image.url
-        except :
-            url = ''
-        return url
+	def imageURL(self):
+		try:
+			url = self.image.url
+		except :
+			url = ''
+		return url
 	
 class Events(models.Model):
 	event = models.ImageField(null=True, blank=True)
@@ -79,12 +79,12 @@ class Events(models.Model):
 
 
 	@property
-    def imageURL(self):
-        try:
-            url = self.image.url
-        except :
-            url = ''
-        return url
+	def imageURL(self):
+		try:
+			url = self.image.url
+		except :
+			url = ''
+		return url
 	
 	
 
