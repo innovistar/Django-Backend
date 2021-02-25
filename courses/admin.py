@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-f#rom embed_video.admin import AdminVideoMixin
+#rom embed_video.admin import AdminVideoMixin
 from .models import Course, Topic, Notification, Books, Events
 
 # Register your models here.
