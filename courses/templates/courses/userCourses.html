@@ -1,0 +1,24 @@
+{% extends 'courses/index.html' %}
+{% load static %}
+{% block content %}
+<a href="#">
+  <h2 class="section-heading">HOME</h2>
+</a>
+<section>
+  {% for course in courses %}
+  <div class="card">
+    <div class="card-image">
+      <a href="/course/{{course.id}}">
+        <img class="course-img" src="{{course.imageURL}}" alt="Card Image">
+      </a>
+    </div>
+    <div class="card-description">
+      <a href="#">
+        <h3>{{course.title}}</h3>
+      </a>
+      <a href="/course/user/{{course.id}}" class="btn-readmore">Edit</a>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'courses/index.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+<h2 class="section-heading">{{course.title}}</h2>
+
+<h4>{{course.title}}</h4>
+<section>
+  {% for topic in course.topic_set.all %}
+      <div class="card">
+        <div class="card-image">
+          {%video topic.video_url%}
+        </div>
+        <div class="card-description">
+          <a href="{{topic.other_url}}">View More</h4>
+        </div>
+      </div>
+  {% endfor %}
+</section>
+{% endblock content %}

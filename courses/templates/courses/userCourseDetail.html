@@ -1,0 +1,47 @@
+{% extends 'courses/index.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+  <a href="/" class="page-heading">BACK</a>
+  <div id="post-container">
+      <section id="blogpost">
+        <div class="card">
+          <div class="card-meta-blogpost">
+          </div>
+          <div class="card-image">
+            <img src="{{course.imageURL}}" alt="Card Image">
+          </div>
+          <div class="card-description">
+            <h1>{{course.title}}</h1>
+            <br>
+            <h2>{{course.note}}</h2>
+            <div>
+              <h1>Upload New Video</h1>
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="topic"  placeholder="Title" required autofocus>
+                <input type="text" name="video_url" placeholder="Video Url" id="fileupload">
+                <input type="text" name="other_url"  placeholder="Other Url" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button> 
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside id="sidebar">
+        <h3>Course Videos</h3>
+        {% for topic in course.topic_set.all %}
+          <div class="video-card">
+            <div class="video-image">
+              {%video topic.video_url%}
+            </div>
+            <div class="card-description">
+              <a href="{{topic.other_url}}">View More</h4>
+            </div>
+          </div>
+        {% endfor %}
+      </aside>
+    </div>
+  </div>
+{% endblock content %}
