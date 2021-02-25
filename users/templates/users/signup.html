@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/user.css' %}">
+</head>
+<body>
+  <div class="sign-up">
+    <h1>Sign Up</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="username" class="input-box" placeholder="Username">
+      <input type="email" name="email" class="input-box" placeholder="Email">
+      <input type="password" name="password1" class="input-box" placeholder="Password">
+      <input type="password" name="password2" class="input-box" placeholder="Password">
+      <p class="show"><input type="checkbox" name="show" id="show">Show Password</p>
+      <hr>
+      {% for field in registration_form %}
+      <p>{% for error in field.errors %}<p style="color: red">{{ error }}</p>{% endfor %}</p>
+      {% endfor %}
+      <button type="submit" class="signup-btn">Rigister</button>
+    </form>
+    
+  </div>
+
+</body>
+</html>
